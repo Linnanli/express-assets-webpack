@@ -21,6 +21,7 @@ module.exports = {
     plugins: [],             // 对应的插件
     devServer: {
         port: 9000,
+        host: '127.0.0.1',
         useLocalIp: true
     },           // 开发服务器配置
     mode: 'development'      // 模式配置

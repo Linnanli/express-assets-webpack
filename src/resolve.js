@@ -37,13 +37,16 @@ function resolveHTMLPlugin(options) {
     return htmlPlugins
 }
 
+function deleteOption(options) {
+    delete options.entryContext
+}
+
 exports.resolveConfig = function resolveConfig (options) {
     options.entryContext = path.resolve(cwd, options.entryContext)
     options.entry = resolveEntry(options)
     options.plugins = options.plugins.concat(resolveHTMLPlugin(options))
-    console.log(JSON.stringify(options, null, 2))
-
-    delete options.entryContext
+    // console.log(JSON.stringify(options, null, 2))
+    deleteOption(options)
 }
 
 exports.loadConfig = function loadConfig() {
