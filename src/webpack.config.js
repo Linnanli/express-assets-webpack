@@ -1,7 +1,7 @@
 const path = require('path')
 
 const config = {
-    assetsRoot: path.resolve(process.cwd(), 'dist'),
+    assetsRoot: path.resolve(process.cwd(), 'dist/client'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 }
