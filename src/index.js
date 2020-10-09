@@ -1,23 +1,15 @@
+const webpackDevMiddleware = require('webpack-dev-middleware')
+// const webpackHotMiddleware = require('webpack-hot-middleware')
 const { resolveConfig, loadConfig } = require('./resolve')
-const program = require('commander')
-const pkg = require('../package.json')
-const { build } = require('./build')
-const { serve } = require('./serve')
+const webpack = require('webpack')
+const { rewriteFs } = require('./fs')
 
 const config = loadConfig()
 resolveConfig(config)
 
-program.version(pkg.version, '-V, --version')
-    .arguments('<mode>')
-    .action(function (mode, cmd) {
-        console.log(mode)
-        if (mode === 'build') {
-            build(config)
-        } else if (mode === 'serve') {
-            serve(config)
-        }
-    })
-    .parse(process.argv)
-
-
-
+module.exports = function (app) {
+    const compiler = webpack(config)
+    const devServerOptions = Object.assign({}, config.devServer)
+    app.use(webpackDevMiddleware(compiler, devServerOptions))
+    rewriteFs(compiler.outputFileSystem, config)
+}

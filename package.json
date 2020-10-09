@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
+  "bin": {
+    "serve-assets-webpack": "./bin/serve-assets-webpack.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./src/index.js build",
-    "serve": "node ./src/index.js serve"
+    "build": "serve-assets-webpack build",
+    "serve": "serve-assets-webpack serve"
   },
   "repository": {
     "type": "git",
