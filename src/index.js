@@ -15,6 +15,7 @@ module.exports = function (app) {
     delete devServerOptions.port
     delete devServerOptions.host
     devServerOptions.index = false
+    devServerOptions.serverSideRender = true
     app.use(webpackDevMiddleware(compiler, devServerOptions))
     rewriteFs(compiler.outputFileSystem, config)
 }

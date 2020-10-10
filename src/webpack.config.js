@@ -22,9 +22,7 @@ module.exports = {
     devServer: {
         port: 9000,
         host: '127.0.0.1',
-        useLocalIp: true,
-        index: false,
-        serverSideRender: true
+        useLocalIp: true
     },           // 开发服务器配置
     mode: 'development'      // 模式配置
 }
