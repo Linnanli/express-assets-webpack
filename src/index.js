@@ -10,6 +10,8 @@ resolveConfig(config)
 module.exports = function (app) {
     const compiler = webpack(config)
     const devServerOptions = Object.assign({}, config.devServer)
+    delete devServerOptions.port
+    delete devServerOptions.host
     app.use(webpackDevMiddleware(compiler, devServerOptions))
     rewriteFs(compiler.outputFileSystem, config)
 }
