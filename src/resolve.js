@@ -56,7 +56,7 @@ exports.resolveConfig = function resolveConfig (options) {
 exports.loadConfig = function loadConfig() {
     const webpackConfig = require('./webpack.config')
     try {
-        const confScriptPath = path.resolve(cwd, '.', 'service-static-webpack.js')
+        const confScriptPath = path.resolve(cwd, '.', 'express-assets-config.js')
         const fsStat = fs.statSync(confScriptPath)
         if (fsStat.isFile()) {
             const serviceStaticWebpack = require(confScriptPath)
@@ -70,7 +70,6 @@ exports.loadConfig = function loadConfig() {
             return webpackConfig
         }
     } catch (e) {
-        console.log(e)
         return webpackConfig
     }
 }
