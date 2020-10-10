@@ -9,6 +9,7 @@ resolveConfig(config)
 
 module.exports = function (app) {
     const compiler = webpack(config)
+    config.mode = 'development'
     const devServerOptions = Object.assign({}, config.devServer)
     app.use(webpackDevMiddleware(compiler, devServerOptions))
     rewriteFs(compiler.outputFileSystem, config)

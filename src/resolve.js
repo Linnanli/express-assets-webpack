@@ -26,11 +26,15 @@ function resolveHTMLPlugin(options) {
     const files = getFiles(options.entryContext, '**/index.html')
     const htmlPlugins = []
     files.forEach((file) => {
-        const filename = `${file.match(/.*(?=\/index\.html)/)[0]}.html`
+        const chunksName = file.match(/.*(?=\/index\.html)/)[0]
+
         htmlPlugins.push(
             new HtmlWebpackPlugin({
-                filename,
-                template: path.resolve(options.entryContext, file)
+                filename: `${chunksName}.html`,
+                template: path.resolve(options.entryContext, file),
+                inject: 'body',
+                hash: true,
+                chunks: [chunksName]
             })
         )
     })

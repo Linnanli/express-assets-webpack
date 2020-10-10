@@ -6,6 +6,8 @@ exports.build = function (config) {
     const spinner = ora('生产文件构建中...').start()
     spinner.color = 'green'
 
+    config.mode = 'production'
+
     webpack(config, (err, stats) => {
         spinner.stop()
         if (err) throw err
