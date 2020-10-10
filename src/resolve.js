@@ -17,7 +17,7 @@ function resolveEntry(options) {
     const entry = {}
     files.forEach((file) => {
         const name = file.match(/.*(?=\/index\.js)/)[0]
-        entry[name] = `./${file}`
+        entry[name] = [`./${file}`]
     })
     return entry
 }
