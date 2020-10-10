@@ -47,6 +47,7 @@ function resolveHTMLPlugin(options) {
 
 exports.resolveConfig = function resolveConfig (options) {
     options.entry = resolveEntry(options)
+    options.mode = process.env.NODE_ENV
     options.plugins = options.plugins.concat(resolveHTMLPlugin(options))
 }
 

@@ -12,7 +12,6 @@ resolveConfig(config)
 program.version(pkg.version, '-V, --version')
     .arguments('<mode>')
     .action(function (mode, cmd) {
-        console.log(mode)
         if (mode === 'build') {
             build(config)
         } else if (mode === 'serve') {

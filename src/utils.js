@@ -15,3 +15,7 @@ exports.isObject = function (value) {
 exports.isUndefined = function (value) {
     return value === undefined
 }
+
+exports.setNodeEnv = function (env) {
+    if (!process.env.NODE_ENV) process.env.NODE_ENV = env
+}
