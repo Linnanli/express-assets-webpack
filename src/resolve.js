@@ -13,7 +13,7 @@ function getFiles(context, pattern) {
 }
 
 function resolveEntry(options) {
-    const files = getFiles(options.entryContext, '**/index.js')
+    const files = getFiles(options.context, '**/index.js')
     const entry = {}
     files.forEach((file) => {
         const name = file.match(/.*(?=\/index\.js)/)[0]
@@ -23,7 +23,7 @@ function resolveEntry(options) {
 }
 
 function resolveHTMLPlugin(options) {
-    const files = getFiles(options.entryContext, '**/index.html')
+    const files = getFiles(options.context, '**/index.html')
     const htmlPlugins = []
     files.forEach((file) => {
         const chunksName = file.match(/.*(?=\/index\.html)/)[0]
@@ -31,7 +31,7 @@ function resolveHTMLPlugin(options) {
         htmlPlugins.push(
             new HtmlWebpackPlugin({
                 filename: `${chunksName}.html`,
-                template: path.resolve(options.entryContext, file),
+                template: path.resolve(options.context, file),
                 inject: 'body',
                 hash: true,
                 chunks: [chunksName]
@@ -41,16 +41,13 @@ function resolveHTMLPlugin(options) {
     return htmlPlugins
 }
 
-function deleteOption(options) {
-    delete options.entryContext
-}
+// function deleteOption(options) {
+//     delete options.entryContext
+// }
 
 exports.resolveConfig = function resolveConfig (options) {
-    options.entryContext = path.resolve(cwd, options.entryContext)
     options.entry = resolveEntry(options)
     options.plugins = options.plugins.concat(resolveHTMLPlugin(options))
-    // console.log(JSON.stringify(options, null, 2))
-    deleteOption(options)
 }
 
 exports.loadConfig = function loadConfig() {
