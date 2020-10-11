@@ -80,19 +80,23 @@ function formatArgument(funcName, args = []) {
 }
 
 
-function isWebpackFile(fileName, options) {
-    return ~fileName.indexOf(options.context) || ~fileName.indexOf(options.output.path)
+// function isEntryFile(fileName, options) {
+//     return ~fileName.indexOf(options.context)
+// }
+
+function isOutputFile(fileName, options) {
+    return ~fileName.indexOf(options.output.path)
 }
 
 exports.rewriteFs = function (memoryFileSystem, options) {
     for (const key in fs) {
         if (isFunction(fs[key]) && isFunction(memoryFileSystem[key])) {
-            // console.log(key)
             const originalFunc = fs[key]
             // 如果是加载视图文件则调用memoryFileSystem方法
             fs[key] = function () {
                 const fileName = arguments[0]
-                if (isWebpackFile(fileName, options)) {
+                if (isOutputFile(fileName, options)) {
+                    // console.log(key, fileName)
                     const args = formatArgument(key, Array.from(arguments))
                     return memoryFileSystem[key].apply(memoryFileSystem, args)
                 } else {

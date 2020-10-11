@@ -20,10 +20,8 @@ module.exports = function (app) {
     // 补充配置
     addHotReplacementClient(config)
     config.plugins.push(
-        new webpack.optimize.OccurrenceOrderPlugin(),
         // 热更新插件
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.HotModuleReplacementPlugin()
     )
 
     const compiler = webpack(config)
