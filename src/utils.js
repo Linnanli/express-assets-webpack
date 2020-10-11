@@ -19,3 +19,13 @@ exports.isUndefined = function (value) {
 exports.setNodeEnv = function (env) {
     if (!process.env.NODE_ENV) process.env.NODE_ENV = env
 }
+
+exports.jsonToParams = function (data) {
+    let tempArr = []
+    for (let i in data) {
+        let key = encodeURIComponent(i)
+        let value = encodeURIComponent(data[i])
+        tempArr.push(key + '=' + value)
+    }
+    return tempArr.join('&')
+}

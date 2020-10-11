@@ -3,7 +3,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware')
 const { resolveConfig, loadConfig } = require('./resolve')
 const webpack = require('webpack')
 const { rewriteFs } = require('./fs')
-const { setNodeEnv } = require('./utils')
+const { setNodeEnv, jsonToParams } = require('./utils')
 
 setNodeEnv('development')
 
@@ -11,8 +11,14 @@ const config = loadConfig()
 resolveConfig(config)
 
 function addHotReplacementClient(config) {
+    const params = {
+        path: '/__webpack_hmr',
+        timeout: 20000,
+        reload: true
+    }
+    const url = `webpack-hot-middleware/client?${jsonToParams(params)}`
     for (const name in config.entry) {
-        config.entry[name].push('webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true')
+        config.entry[name].push(url)
     }
 }
 

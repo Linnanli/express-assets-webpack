@@ -21,8 +21,8 @@ module.exports = {
         port: 9000,
         host: '127.0.0.1',
         publicPath: config.assetsPublicPath,
-        quiet: true
-        // noInfo: true
+        quiet: true,
+        noInfo: true
     },           // 开发服务器配置
     mode: 'development'      // 模式配置
 }
