@@ -96,7 +96,7 @@ exports.rewriteFs = function (memoryFileSystem, options) {
             fs[key] = function () {
                 const fileName = arguments[0]
                 if (isOutputFile(fileName, options)) {
-                    // console.log(key, fileName)
+                    
                     const args = formatArgument(key, Array.from(arguments))
                     return memoryFileSystem[key].apply(memoryFileSystem, args)
                 } else {

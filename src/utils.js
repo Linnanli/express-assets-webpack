@@ -22,10 +22,8 @@ exports.setNodeEnv = function (env) {
 
 exports.jsonToParams = function (data) {
     let tempArr = []
-    for (let i in data) {
-        let key = encodeURIComponent(i)
-        let value = encodeURIComponent(data[i])
-        tempArr.push(key + '=' + value)
+    for (let key in data) {
+        tempArr.push(key + '=' + data[key])
     }
     return tempArr.join('&')
 }

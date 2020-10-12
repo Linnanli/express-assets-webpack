@@ -32,7 +32,7 @@ function resolveHTMLPlugin(options) {
             new HtmlWebpackPlugin({
                 filename: `${chunksName}.html`,
                 template: path.resolve(options.context, file),
-                inject: 'body',
+                inject: true,
                 hash: true,
                 chunks: [chunksName]
             })

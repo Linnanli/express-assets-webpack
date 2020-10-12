@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./example/server/index.js",
     "build": "express-assets-webpack build",
     "serve": "express-assets-webpack serve"
   },
