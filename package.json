@@ -10,7 +10,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./example/server/index.js",
     "build": "express-assets-webpack build",
-    "serve": "express-assets-webpack serve"
+    "serve": "express-assets-webpack serve",
+    "release": "standard-version -a",
+    "major": "standard-version -a --release-as major",
+    "minor": "standard-version -a --release-as minor",
+    "patch": "standard-version -a --release-as patch",
+    "alpha": "standard-version -a --release-as alpha",
+    "beta": "standard-version -a --release-as beta"
   },
   "repository": {
     "type": "git",
@@ -34,6 +40,7 @@
     "webpack-hot-middleware": "2.25.0"
   },
   "devDependencies": {
-    "hbs": "^4.1.1"
+    "hbs": "^4.1.1",
+    "standard-version": "^9.0.0"
   }
 }
