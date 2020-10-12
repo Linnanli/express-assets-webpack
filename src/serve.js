@@ -2,8 +2,6 @@ const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 
 exports.serve = function (config) {
-    config.mode = 'development'
-    
     const compiler = webpack(config)
     const devServerOptions = Object.assign({}, config.devServer)
 

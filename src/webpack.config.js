@@ -27,7 +27,7 @@ const webpackConfig = {
         quiet: true,
         noInfo: true
     },           // 开发服务器配置
-    mode: 'development'      // 模式配置
+    mode: process.env.NODE_ENV      // 模式配置
 }
 
 addStyleLoader(webpackConfig)
