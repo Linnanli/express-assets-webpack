@@ -1,6 +1,6 @@
 {
   "name": "express-assets-webpack",
-  "version": "1.0.0",
+  "version": "1.1.0-alpha.0",
   "description": "",
   "main": "./src/index.js",
   "bin": {
@@ -15,8 +15,8 @@
     "major": "standard-version -a --release-as major",
     "minor": "standard-version -a --release-as minor",
     "patch": "standard-version -a --release-as patch",
-    "alpha": "standard-version -a --release-as alpha",
-    "beta": "standard-version -a --release-as beta"
+    "alpha": "standard-version -a --prerelease alpha",
+    "beta": "standard-version -a --prerelease beta"
   },
   "repository": {
     "type": "git",
