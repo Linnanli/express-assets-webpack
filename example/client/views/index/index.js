@@ -1,3 +1,5 @@
+require('./index.scss')
+
 let info = document.createElement('div')
 info.innerText = '热更新测试1'
 

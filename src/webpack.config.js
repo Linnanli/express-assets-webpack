@@ -1,4 +1,5 @@
 const path = require('path')
+const { addStyleLoader } = require('./style')
 
 const config = {
     assetsRoot: path.resolve(process.cwd(), 'dist/client'),
@@ -6,7 +7,7 @@ const config = {
     assetsPublicPath: '/',
 }
 
-module.exports = {
+const webpackConfig = {
     context: path.join(process.cwd(), 'client', 'views'),
     entry: {},
     output: { // 出口文件
@@ -15,7 +16,9 @@ module.exports = {
         chunkFilename: path.join(config.assetsSubDirectory, 'js/[name].js'),
         publicPath: config.assetsPublicPath
     },
-    module: {},              // 处理对应模块
+    module: {
+        rules: []
+    },              // 处理对应模块
     plugins: [],             // 对应的插件
     devServer: {
         port: 9000,
@@ -26,3 +29,7 @@ module.exports = {
     },           // 开发服务器配置
     mode: 'development'      // 模式配置
 }
+
+addStyleLoader(webpackConfig)
+
+module.exports = webpackConfig
