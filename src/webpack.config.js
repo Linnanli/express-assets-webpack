@@ -1,11 +1,6 @@
 const path = require('path')
 const { addStyleLoader } = require('./style')
-
-const config = {
-    assetsRoot: path.resolve(process.cwd(), 'dist/client'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-}
+const { config } = require('./config')
 
 const webpackConfig = {
     context: path.join(process.cwd(), 'client', 'views'),

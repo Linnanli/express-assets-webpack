@@ -11,8 +11,14 @@ require('../../src/index')(app)
 
 app.listen(3000)
 
+app.use('/home', (req, res) => {
+    res.render('home', {
+        message: 'home page'
+    })
+})
+
 app.use('/', (req, res) => {
     res.render('index', {
-        message: 'success'
+        message: 'index page'
     })
 })

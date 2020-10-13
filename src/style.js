@@ -1,9 +1,9 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const { config } = require('./config')
 
-exports.addStyleLoader = function (config) {
-    console.log(config.mode)
-    if (config.mode === 'production') {
-        config.module.rules.push({
+exports.addStyleLoader = function (webpackConfig) {
+    if (webpackConfig.mode === 'production') {
+        webpackConfig.module.rules.push({
             test: /\.(scss|sass)$/,
             use: [
                 {
@@ -14,13 +14,13 @@ exports.addStyleLoader = function (config) {
             ]
         })
 
-        config.plugins.push(
+        webpackConfig.plugins.push(
             new MiniCssExtractPlugin({
-                filename: 'css/[name].css'
+                filename: `${config.assetsSubDirectory}/css/[name].css`
             })
         )
     } else {
-        config.module.rules.push({
+        webpackConfig.module.rules.push({
             test: /\.(scss|sass)$/,
             use: ['style-loader', 'css-loader', 'sass-loader']
         })
