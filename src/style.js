@@ -1,23 +1,22 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 exports.addStyleLoader = function (config) {
     console.log(config.mode)
     if (config.mode === 'production') {
         config.module.rules.push({
             test: /\.(scss|sass)$/,
-            use: ExtractTextPlugin.extract(
+            use: [
                 {
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader'],
-                    publicPath: config.output.publicPath
-                }
-            )
+                    loader: MiniCssExtractPlugin.loader
+                },
+                'css-loader',
+                'sass-loader'
+            ]
         })
 
         config.plugins.push(
-            new ExtractTextPlugin({
-                allChunks: true,
-                filename: '[name].css'
+            new MiniCssExtractPlugin({
+                filename: 'css/[name].css'
             })
         )
     } else {
