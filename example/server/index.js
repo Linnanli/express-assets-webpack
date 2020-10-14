@@ -7,9 +7,9 @@ app.set('view engine', 'html')
 app.set('views', path.join(process.cwd(), 'dist/client'))
 app.engine('html', require('hbs').__express);
 
-require('../../src/index')(app)
+const server = app.listen(3000)
 
-app.listen(3000)
+require('../../src/index')(app, server)
 
 app.use('/home', (req, res) => {
     res.render('home', {

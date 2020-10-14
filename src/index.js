@@ -4,6 +4,8 @@ const { resolveConfig, loadConfig } = require('./resolve')
 const webpack = require('webpack')
 const { rewriteFs } = require('./fs')
 const { setNodeEnv, jsonToParams } = require('./utils')
+const { syncPage } = require('./sync-page')
+const path = require('path')
 
 setNodeEnv('development')
 
@@ -18,17 +20,19 @@ function addHotReplacementClient(config) {
     }
     const url = `webpack-hot-middleware/client?${jsonToParams(params)}`
     for (const name in config.entry) {
-        config.entry[name].push(url)
+        config.entry[name].push(url, path.join(__dirname, './socket-client.js'))
     }
 }
 
-module.exports = function (app) {
+module.exports = function (app, server) {
     // 补充配置
     addHotReplacementClient(config)
     config.plugins.push(
         // 热更新插件
         new webpack.HotModuleReplacementPlugin()
     )
+
+    syncPage(server, config)
 
     const compiler = webpack(config)
 
