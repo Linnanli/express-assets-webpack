@@ -12,7 +12,9 @@ const webpackConfig = {
         publicPath: config.assetsPublicPath
     },
     module: {
-        rules: []
+        rules: [
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+        ]
     },              // 处理对应模块
     plugins: [],             // 对应的插件
     devServer: {
