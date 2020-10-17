@@ -2,13 +2,15 @@ const path = require('path')
 const { addStyleLoader } = require('./style')
 const { config } = require('./config')
 
+const outputJsPath = `${config.assetsSubDirectory}/js/[name].js`
+
 const webpackConfig = {
     context: path.join(process.cwd(), 'client', 'views'),
     entry: {},
     output: { // 出口文件
         path: config.assetsRoot,
-        filename: path.join(config.assetsSubDirectory, 'js/[name].js'),
-        chunkFilename: path.join(config.assetsSubDirectory, 'js/[name].js'),
+        filename: outputJsPath,
+        chunkFilename: outputJsPath,
         publicPath: config.assetsPublicPath
     },
     module: {
