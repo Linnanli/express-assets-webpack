@@ -15,7 +15,8 @@ const webpackConfig = {
     },
     module: {
         rules: [
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+            { test: /\.html$/, exclude: /node_modules/, loader: "html-loader" }
         ]
     },              // 处理对应模块
     plugins: [],             // 对应的插件
