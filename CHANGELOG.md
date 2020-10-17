@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-alpha.2](https://github.com/Linnanli/express-assets-webpack/compare/v1.1.0-alpha.1...v1.1.0-alpha.2) (2020-10-17)
+
+
+### Bug Fixes
+
+* 修复打包到html中乱码的问题 ([b35d14a](https://github.com/Linnanli/express-assets-webpack/commit/b35d14ab47ac31bb6727ecd082a387cfdaa7bdaf))
+
 ## [1.1.0-alpha.1](https://github.com/Linnanli/express-assets-webpack/compare/v1.1.0-alpha.0...v1.1.0-alpha.1) (2020-10-17)
 
 
