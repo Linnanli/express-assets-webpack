@@ -2,6 +2,7 @@ const glob = require('glob')
 const fs = require('fs')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { isFunction } = require('./utils')
 
 const cwd = process.cwd()
@@ -28,27 +29,62 @@ function resolveHTMLPlugin(options) {
     files.forEach((file) => {
         const chunksName = file.match(/.*(?=\/index\.html)/)[0]
 
+        const chunks = [chunksName]
+
         htmlPlugins.push(
             new HtmlWebpackPlugin({
                 filename: `${chunksName}.html`,
                 template: path.resolve(options.context, file),
                 inject: true,
                 hash: true,
-                chunks: [chunksName]
+                chunks
             })
         )
     })
     return htmlPlugins
 }
 
-// function deleteOption(options) {
-//     delete options.entryContext
-// }
+function addPlugins(options) {
+    if (options.mode === 'production') {
+        options.plugins.push(
+            new CleanWebpackPlugin()
+        )
+    }
+}
+
+function addConfigs(options) {
+    if (options.mode === 'production') {
+        // 添加优化配置，分割代码块
+        options.optimization = {
+            splitChunks: {
+                cacheGroups: {
+                    vendors: {
+                        name: "vendors",
+                        test: /[\\/]node_modules[\\/]/,
+                        chunks: 'initial',
+                        minChunks: 1,
+                        priority: 1
+                    },
+                    common: {
+                        name: "common",
+                        chunks: 'all',
+                        priority: 0
+                    }
+                }
+            },
+            runtimeChunk: {
+                name: entrypoint => `manifest.${entrypoint.name}`
+            }
+        }
+    }
+}
 
 exports.resolveConfig = function resolveConfig (options) {
     options.entry = resolveEntry(options)
     options.mode = process.env.NODE_ENV
     options.plugins = options.plugins.concat(resolveHTMLPlugin(options))
+    addConfigs(options)
+    addPlugins(options)
 }
 
 exports.loadConfig = function loadConfig() {

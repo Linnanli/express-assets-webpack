@@ -1,19 +1,10 @@
 const webpack = require('webpack')
 const ora = require('ora')
 const chalk = require('chalk')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-
-function addPlugins(config) {
-    config.plugins.push(
-        new CleanWebpackPlugin()
-    )
-}
 
 exports.build = function (config) {
     const spinner = ora('生产文件构建中...').start()
     spinner.color = 'green'
-
-    addPlugins(config)
 
     webpack(config, (err, stats) => {
         spinner.stop()

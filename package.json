@@ -51,6 +51,7 @@
     "webpack-hot-middleware": "2.25.0"
   },
   "devDependencies": {
+    "alpinejs": "^2.7.0",
     "hbs": "^4.1.1",
     "standard-version": "^9.0.0"
   }

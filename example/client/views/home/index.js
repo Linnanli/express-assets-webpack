@@ -1,3 +1,4 @@
 require('./index.scss')
+import { getInfo } from '../../common/test'
 
-console.log(1)
+console.log(getInfo())
