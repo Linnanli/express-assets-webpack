@@ -62,7 +62,6 @@ function addConfigs(options) {
                         name: "vendors",
                         test: /[\\/]node_modules[\\/]/,
                         chunks: 'initial',
-                        minChunks: 1,
                         priority: 1
                     },
                     common: {
@@ -73,7 +72,7 @@ function addConfigs(options) {
                 }
             },
             runtimeChunk: {
-                name: entrypoint => `manifest.${entrypoint.name}`
+                name: 'manifest'
             }
         }
     }
