@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-alpha.3](https://github.com/Linnanli/express-assets-webpack/compare/v1.1.0-alpha.2...v1.1.0-alpha.3) (2020-10-18)
+
+
+### Features
+
+* 支持引入布局文件 ([cbf65f2](https://github.com/Linnanli/express-assets-webpack/commit/cbf65f2f991d503920719bbf618e4541b9aa7fc2))
+* 支持模板导入 ([26bea09](https://github.com/Linnanli/express-assets-webpack/commit/26bea0949e573eed70cbaa1a9aaac001feb0590b))
+* 新增html-loader ([666909a](https://github.com/Linnanli/express-assets-webpack/commit/666909a869a66d398527ca99c1872cea637edab2))
+
 ## [1.1.0-alpha.2](https://github.com/Linnanli/express-assets-webpack/compare/v1.1.0-alpha.1...v1.1.0-alpha.2) (2020-10-17)
 
 
