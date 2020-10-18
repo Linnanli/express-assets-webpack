@@ -24,10 +24,10 @@ function resolveEntry(options) {
 }
 
 function resolveHTMLPlugin(options) {
-    const files = getFiles(options.context, '**/index.html')
+    const files = getFiles(options.context, '**/index.ejs')
     const htmlPlugins = []
     files.forEach((file) => {
-        const chunksName = file.match(/.*(?=\/index\.html)/)[0]
+        const chunksName = file.match(/.*(?=\/index\.ejs)/)[0]
 
         const chunks = [chunksName]
 
