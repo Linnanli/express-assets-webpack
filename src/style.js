@@ -12,6 +12,14 @@ exports.addStyleLoader = function (webpackConfig) {
                 'css-loader',
                 'sass-loader'
             ]
+        }, {
+            test: /\.css$/,
+            use: [
+                {
+                    loader: MiniCssExtractPlugin.loader
+                },
+                'css-loader'
+            ]
         })
 
         webpackConfig.plugins.push(
@@ -23,6 +31,9 @@ exports.addStyleLoader = function (webpackConfig) {
         webpackConfig.module.rules.push({
             test: /\.(scss|sass)$/,
             use: ['style-loader', 'css-loader', 'sass-loader']
+        }, {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
         })
     }
 }

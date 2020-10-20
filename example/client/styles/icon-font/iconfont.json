@@ -1,0 +1,23 @@
+{
+  "id": "2143492",
+  "name": "myblog",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2952765",
+      "name": "赞",
+      "font_class": "zan",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "10898529",
+      "name": "star",
+      "font_class": "star",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import "../../styles//icon-font/iconfont.css"
 import './index.scss'
 import 'alpinejs'
 import { getInfo } from '../../common/test'

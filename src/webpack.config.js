@@ -13,10 +13,20 @@ const webpackConfig = {
         chunkFilename: outputJsPath,
         publicPath: config.assetsPublicPath
     },
+    resolve: {},
     module: {
         rules: [
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
             { test: /\.html$/, exclude: /node_modules/, loader: "html-loader" },
+            {
+                test: /\.(eot|woff|ttf|woff2|appcache|svg)\??.*$/,
+                exclude: /node_modules/,
+                loader: "file-loader",
+                options: {
+                    limit: 10000,
+                    outputPath: `${config.assetsSubDirectory}/fonts`,
+                }
+            },
             { 
                 test: /\.ejs$/, 
                 exclude: /node_modules/,
