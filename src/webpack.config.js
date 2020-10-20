@@ -21,11 +21,7 @@ const webpackConfig = {
             {
                 test: /\.(eot|woff|ttf|woff2|appcache|svg)\??.*$/,
                 exclude: /node_modules/,
-                loader: "file-loader",
-                options: {
-                    limit: 10000,
-                    outputPath: `${config.assetsSubDirectory}/fonts`,
-                }
+                loader: "url-loader"
             },
             { 
                 test: /\.ejs$/, 

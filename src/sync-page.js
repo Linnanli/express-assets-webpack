@@ -5,7 +5,7 @@ const socketIO = require('socket.io')
 let currentSocket = null
 
 exports.syncPage = function (server, config) {
-    chokidar.watch('**/*.html', {
+    chokidar.watch('**/*.ejs', {
         persistent: true,
         ignored: /(^|[\/\\])\../,
         cwd: config.context,
