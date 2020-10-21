@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-alpha.4](https://github.com/Linnanli/express-assets-webpack/compare/v1.1.0-alpha.3...v1.1.0-alpha.4) (2020-10-21)
+
+
+### Features
+
+* 修改字体loader ([a90a5f0](https://github.com/Linnanli/express-assets-webpack/commit/a90a5f0f2ca94b2c5e4812b29d2deca8213c4280))
+* 支持icon-font ([5ad81aa](https://github.com/Linnanli/express-assets-webpack/commit/5ad81aaaea8fdab926f53927b83bb8125affd9b4))
+
 ## [1.1.0-alpha.3](https://github.com/Linnanli/express-assets-webpack/compare/v1.1.0-alpha.2...v1.1.0-alpha.3) (2020-10-18)
 
 
